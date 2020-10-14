@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://gavinzjzhang.github.io/</id>
     <title>Gavy&apos;s TechBlog</title>
-    <updated>2020-10-14T06:35:04.415Z</updated>
+    <updated>2020-10-14T06:41:31.974Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://gavinzjzhang.github.io/"/>
     <link rel="self" href="https://gavinzjzhang.github.io/atom.xml"/>
@@ -10,6 +10,90 @@
     <logo>https://gavinzjzhang.github.io/images/avatar.png</logo>
     <icon>https://gavinzjzhang.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Gavy&apos;s TechBlog</rights>
+    <entry>
+        <title type="html"><![CDATA[Redis]]></title>
+        <id>https://gavinzjzhang.github.io/post/redis/</id>
+        <link href="https://gavinzjzhang.github.io/post/redis/">
+        </link>
+        <updated>2020-10-14T06:37:31.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="g-聊-redis">G-聊 Redis</h2>
+<h2 id="nosql概述">Nosql概述</h2>
+<h2 id="redis入门">Redis入门</h2>
+<h2 id="五大数据类型">五大数据类型</h2>
+<h3 id="string-字符串">String (字符串)</h3>
+<pre><code class="language-bash">#字符串范围
+127.0.0.1:6379&gt; set key1 &quot;hello,gavy&quot; #
+OK
+127.0.0.1:6379&gt; get key1
+&quot;hello,gavy&quot;
+127.0.0.1:6379&gt; getrange
+(error) ERR wrong number of arguments for 'getrange' command
+127.0.0.1:6379&gt; GETRANGE key1 0 3
+&quot;hell&quot;
+127.0.0.1:6379&gt; GETRANGE key1 0 -1
+&quot;hello,gavy&quot;
+127.0.0.1:6379&gt; 
+################################################################
+
+127.0.0.1:6379&gt; set
+(error) ERR wrong number of arguments for 'set' command
+127.0.0.1:6379&gt; set key1 &quot;hello,gavy&quot;
+OK
+127.0.0.1:6379&gt; get key1
+&quot;hello,gavy&quot;
+127.0.0.1:6379&gt; getrange
+(error) ERR wrong number of arguments for 'getrange' command
+127.0.0.1:6379&gt; GETRANGE key1 0 3
+&quot;hell&quot;
+127.0.0.1:6379&gt; GETRANGE key1 0 -1
+&quot;hello,gavy&quot;
+127.0.0.1:6379&gt; 
+
+
+
+</code></pre>
+<h3 id="list-列表">List (列表)</h3>
+<h3 id="set-集合">Set (集合)</h3>
+<h3 id="hash-哈希">Hash (哈希)</h3>
+<pre><code class="language-bash">127.0.0.1:6379&gt; keys *
+(empty array)
+127.0.0.1:6379&gt; HSET myhash field3 5
+(integer) 1
+127.0.0.1:6379&gt; HSET myhash field3 6
+(integer) 0
+127.0.0.1:6379&gt; HGET myhash field3
+&quot;6&quot;
+127.0.0.1:6379&gt; HSET myhash field4 7 field5 8
+(integer) 2
+127.0.0.1:6379&gt; keys *
+1) &quot;myhash&quot;
+127.0.0.1:6379&gt; HKEYS *
+(empty array)
+127.0.0.1:6379&gt; HKEYS myhash
+1) &quot;field3&quot;
+2) &quot;field4&quot;
+3) &quot;field5&quot;
+127.0.0.1:6379&gt; HGET field4
+(error) ERR wrong number of arguments for 'hget' command
+127.0.0.1:6379&gt; HGET myhash field4
+&quot;7&quot;
+127.0.0.1:6379&gt; 
+[root@ecs-kc1-small-1-linux-20200604230717 bin]# 
+</code></pre>
+<h3 id="zset-有序集合">ZSet (有序集合)</h3>
+<p>案例思路：set 排序	存储班级成绩表、工资表排序！</p>
+<p>普通消息,1 重要消息,2 带权重进行<mark>判断</mark>！</p>
+<p>排行榜 取<strong>Top N</strong></p>
+<blockquote></blockquote>
+<h2 id="三种特殊数据类型">三种特殊数据类型</h2>
+<h3 id="geospatial-地理位置">geospatial 地理位置</h3>
+<blockquote>
+<p>georadius</p>
+</blockquote>
+<h3 id="hyperloglog">hyperloglog</h3>
+<h3 id="bitmaps">bitmaps</h3>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
         <id>https://gavinzjzhang.github.io/post/hello-gridea/</id>
