@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://gavinzjzhang.github.io/</id>
     <title>Gavy&apos;s TechBlog</title>
-    <updated>2020-10-24T05:29:00.804Z</updated>
+    <updated>2020-10-24T05:33:10.816Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://gavinzjzhang.github.io/"/>
     <link rel="self" href="https://gavinzjzhang.github.io/atom.xml"/>
@@ -184,12 +184,12 @@ sadd tag:erlang 3
 <h5 id="应用场景-4">应用场景</h5>
 <p>我们简单举个实例来描述下Hash的应用场景，比如我们要存储一个用户信息对象数据，包含以下信息：</p>
 <p>用户ID为查找的key，存储的value用户对象包含姓名，年龄，生日等信息，如果用普通的key/value结构来存储，主要有以下2种存储方式：</p>
-<figure data-type="image" tabindex="1"><img src="https://images2015.cnblogs.com/blog/249993/201706/249993-20170614103202353-1250665205.jpg" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://gavinzjzhang.github.io//post-images/1603517535769.jpg" alt="" loading="lazy"></figure>
 <p>第一种方式将用户ID作为查找key,把其他信息封装成一个对象以序列化的方式存储，这种方式的缺点是，<font color="#FF0000">增加了序列化/反序列化的开销，并且在需要修改其中一项信息时，需要把整个对象取回，并且修改操作需要对并发进行保护，引入CAS等复杂问题</font>。</p>
-<figure data-type="image" tabindex="2"><img src="https://images2015.cnblogs.com/blog/249993/201706/249993-20170614103514415-1045118131.jpg" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://gavinzjzhang.github.io//post-images/1603517550430.jpg" alt="" loading="lazy"></figure>
 <p>第二种方法是这个用户信息对象有多少成员就存成多少个key-value对儿，用用户ID+对应属性的名称作为唯一标识来取得对应属性的值，<mark>虽然省去了序列化开销和并发问题，但是用户ID为重复存储，如果存在大量这样的数据，内存浪费还是非常可观的</mark>。</p>
 <p>那么Redis提供的Hash很好的解决了这个问题，<mark>Redis的Hash实际是内部存储的Value为一个HashMap，并提供了直接存取这个Map成员的接口</mark>，如下图：</p>
-<figure data-type="image" tabindex="3"><img src="https://images2015.cnblogs.com/blog/249993/201706/249993-20170614103658071-1320999122.jpg" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="https://gavinzjzhang.github.io//post-images/1603517558571.jpg" alt="" loading="lazy"></figure>
 <p>也就是说，Key仍然是用户ID, value是一个Map，这个Map的key是成员的属性名，value是属性值，这样对数据的修改和存取都可以直接通过其内部Map的Key(Redis里称内部Map的key为field), 也就是<mark>通过</mark> <mark>key(用户ID) + field(属性标签) 就可以操作对应属性数据了，既不需要重复存储数据，也不会带来序列化和并发修改控制的问题</mark>。很好的解决了问题。</p>
 <p>这里同时需要注意，Redis提供了接口(hgetall)可以直接取到全部的属性数据，但是如果内部Map的成员很多，那么涉及到遍历整个内部Map的操作，由于Redis单线程模型的缘故，这个遍历操作可能会比较耗时，而另其它客户端的请求完全不响应，这点需要格外注意。</p>
 <h5 id="实现方式-3">实现方式</h5>
@@ -534,12 +534,12 @@ sadd tag:erlang 3
 <h5 id="应用场景-4">应用场景</h5>
 <p>我们简单举个实例来描述下Hash的应用场景，比如我们要存储一个用户信息对象数据，包含以下信息：</p>
 <p>用户ID为查找的key，存储的value用户对象包含姓名，年龄，生日等信息，如果用普通的key/value结构来存储，主要有以下2种存储方式：</p>
-<figure data-type="image" tabindex="1"><img src="https://images2015.cnblogs.com/blog/249993/201706/249993-20170614103202353-1250665205.jpg" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://gavinzjzhang.github.io//post-images/1603517535769.jpg" alt="" loading="lazy"></figure>
 <p>第一种方式将用户ID作为查找key,把其他信息封装成一个对象以序列化的方式存储，这种方式的缺点是，<font color="#FF0000">增加了序列化/反序列化的开销，并且在需要修改其中一项信息时，需要把整个对象取回，并且修改操作需要对并发进行保护，引入CAS等复杂问题</font>。</p>
-<figure data-type="image" tabindex="2"><img src="https://images2015.cnblogs.com/blog/249993/201706/249993-20170614103514415-1045118131.jpg" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://gavinzjzhang.github.io//post-images/1603517550430.jpg" alt="" loading="lazy"></figure>
 <p>第二种方法是这个用户信息对象有多少成员就存成多少个key-value对儿，用用户ID+对应属性的名称作为唯一标识来取得对应属性的值，<mark>虽然省去了序列化开销和并发问题，但是用户ID为重复存储，如果存在大量这样的数据，内存浪费还是非常可观的</mark>。</p>
 <p>那么Redis提供的Hash很好的解决了这个问题，<mark>Redis的Hash实际是内部存储的Value为一个HashMap，并提供了直接存取这个Map成员的接口</mark>，如下图：</p>
-<figure data-type="image" tabindex="3"><img src="https://images2015.cnblogs.com/blog/249993/201706/249993-20170614103658071-1320999122.jpg" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="https://gavinzjzhang.github.io//post-images/1603517558571.jpg" alt="" loading="lazy"></figure>
 <p>也就是说，Key仍然是用户ID, value是一个Map，这个Map的key是成员的属性名，value是属性值，这样对数据的修改和存取都可以直接通过其内部Map的Key(Redis里称内部Map的key为field), 也就是<mark>通过</mark> <mark>key(用户ID) + field(属性标签) 就可以操作对应属性数据了，既不需要重复存储数据，也不会带来序列化和并发修改控制的问题</mark>。很好的解决了问题。</p>
 <p>这里同时需要注意，Redis提供了接口(hgetall)可以直接取到全部的属性数据，但是如果内部Map的成员很多，那么涉及到遍历整个内部Map的操作，由于Redis单线程模型的缘故，这个遍历操作可能会比较耗时，而另其它客户端的请求完全不响应，这点需要格外注意。</p>
 <h5 id="实现方式-3">实现方式</h5>
