@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://gavinzjzhang.github.io/</id>
     <title>Gavy&apos;s TechBlog</title>
-    <updated>2020-10-24T05:21:55.105Z</updated>
+    <updated>2020-10-24T05:26:09.112Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://gavinzjzhang.github.io/"/>
     <link rel="self" href="https://gavinzjzhang.github.io/atom.xml"/>
@@ -23,8 +23,8 @@
 <h2 id="五大数据类型">五大数据类型</h2>
 <p><strong>感谢博客园<a href="https://home.cnblogs.com/u/xiaoxi/">平凡希</a></strong>：<a href="https://www.cnblogs.com/xiaoxi/p/7007695.html">redis学习（八）——redis应用场景</a>、</p>
 <p><code>String字符串类型</code>  <code>List列表</code>  <code>Set集合</code>  <code>Hash哈希</code>  <code>ZSet有序集合</code></p>
-<h3 id="string-字符串">String (字符串)</h3>
 <hr>
+<h3 id="string-字符串">String (字符串)</h3>
 <h5 id="常用命令">常用命令</h5>
 <p>set、get、incr、decr、mget等。</p>
 <pre><code class="language-bash">#set   get   
@@ -64,8 +64,8 @@ OK
 <p>计数</p>
 </blockquote>
 <p>微博数, 粉丝数</p>
-<h3 id="list-列表">List (列表)</h3>
 <hr>
+<h3 id="list-列表">List (列表)</h3>
 <h5 id="常用命令-2">常用命令</h5>
 <p>lpush,rpush,lpop,rpop,lrange等</p>
 <h5 id="应用场景-2">应用场景</h5>
@@ -100,8 +100,8 @@ last_login_list = r.lrange(&quot;login:last_login_times&quot;, 0, N-1)
 </blockquote>
 <p>在Redis中我们的最新微博ID使用了常驻缓存，这是一直更新的。但是我们做了限制不能超过5000个ID，因此我们的获取ID函数会一直询问Redis。只有在start/count参数超出了这个范围的时候，才需要去访问数据库。</p>
 <p>我们的系统不会像传统方式那样“刷新”缓存，Redis实例中的信息永远是一致的。SQL数据库（或是硬盘上的其他类型数据库）只是在用户需要获取“很远”的数据时才会被触发，而主页或第一个评论页是不会麻烦到硬盘上的数据库了。</p>
-<h3 id="set-集合">Set (集合)</h3>
 <hr>
+<h3 id="set-集合">Set (集合)</h3>
 <h5 id="常用命令-3">常用命令</h5>
 <p>sadd,spop,smembers,sunion 等</p>
 <h5 id="应用场景-3">应用场景</h5>
@@ -152,8 +152,8 @@ sadd tag:erlang 3
 <p>获取某段时间所有数据去重值</p>
 </blockquote>
 <p>这个使用Redis的set数据结构最合适了，只需要不断地将数据往set中扔就行了，set意为集合，所以会自动排重。</p>
-<h3 id="hash-哈希">Hash (哈希)</h3>
 <hr>
+<h3 id="hash-哈希">Hash (哈希)</h3>
 <h5 id="常用命令-4">常用命令</h5>
 <p>hget,hset,hgetall 等</p>
 <pre><code class="language-bash">127.0.0.1:6379&gt; keys *
@@ -199,8 +199,8 @@ sadd tag:erlang 3
 <p>存储部分变更数据</p>
 </blockquote>
 <p>如用户信息等</p>
-<h3 id="zset-有序集合">ZSet (有序集合)</h3>
 <hr>
+<h3 id="zset-有序集合">ZSet (有序集合)</h3>
 <h5 id="常用命令-5">常用命令</h5>
 <p>zadd,zrange,zrem,zcard等</p>
 <pre><code class="language-bash">127.0.0.1:6379&gt; keys *
@@ -356,15 +356,15 @@ sadd tag:erlang 3
  inter_list = redis.sunion(&quot;tag.ruby&quot;, &quot;tag:web&quot;)
 </code></pre>
 <h2 id="三种特殊数据类型">三种特殊数据类型</h2>
-<h3 id="geospatial-地理位置">geospatial 地理位置</h3>
 <hr>
+<h3 id="geospatial-地理位置">geospatial 地理位置</h3>
 <blockquote>
 <p>georadius</p>
 </blockquote>
+<hr>
 <h3 id="hyperloglog">hyperloglog</h3>
 <hr>
 <h3 id="bitmaps">bitmaps</h3>
-<hr>
 ]]></summary>
         <content type="html"><![CDATA[<h1 id="redis"><a href="">Redis</a></h1>
 <h2 id="g-聊-redis">G-聊 Redis</h2>
@@ -373,8 +373,8 @@ sadd tag:erlang 3
 <h2 id="五大数据类型">五大数据类型</h2>
 <p><strong>感谢博客园<a href="https://home.cnblogs.com/u/xiaoxi/">平凡希</a></strong>：<a href="https://www.cnblogs.com/xiaoxi/p/7007695.html">redis学习（八）——redis应用场景</a>、</p>
 <p><code>String字符串类型</code>  <code>List列表</code>  <code>Set集合</code>  <code>Hash哈希</code>  <code>ZSet有序集合</code></p>
-<h3 id="string-字符串">String (字符串)</h3>
 <hr>
+<h3 id="string-字符串">String (字符串)</h3>
 <h5 id="常用命令">常用命令</h5>
 <p>set、get、incr、decr、mget等。</p>
 <pre><code class="language-bash">#set   get   
@@ -414,8 +414,8 @@ OK
 <p>计数</p>
 </blockquote>
 <p>微博数, 粉丝数</p>
-<h3 id="list-列表">List (列表)</h3>
 <hr>
+<h3 id="list-列表">List (列表)</h3>
 <h5 id="常用命令-2">常用命令</h5>
 <p>lpush,rpush,lpop,rpop,lrange等</p>
 <h5 id="应用场景-2">应用场景</h5>
@@ -450,8 +450,8 @@ last_login_list = r.lrange(&quot;login:last_login_times&quot;, 0, N-1)
 </blockquote>
 <p>在Redis中我们的最新微博ID使用了常驻缓存，这是一直更新的。但是我们做了限制不能超过5000个ID，因此我们的获取ID函数会一直询问Redis。只有在start/count参数超出了这个范围的时候，才需要去访问数据库。</p>
 <p>我们的系统不会像传统方式那样“刷新”缓存，Redis实例中的信息永远是一致的。SQL数据库（或是硬盘上的其他类型数据库）只是在用户需要获取“很远”的数据时才会被触发，而主页或第一个评论页是不会麻烦到硬盘上的数据库了。</p>
-<h3 id="set-集合">Set (集合)</h3>
 <hr>
+<h3 id="set-集合">Set (集合)</h3>
 <h5 id="常用命令-3">常用命令</h5>
 <p>sadd,spop,smembers,sunion 等</p>
 <h5 id="应用场景-3">应用场景</h5>
@@ -502,8 +502,8 @@ sadd tag:erlang 3
 <p>获取某段时间所有数据去重值</p>
 </blockquote>
 <p>这个使用Redis的set数据结构最合适了，只需要不断地将数据往set中扔就行了，set意为集合，所以会自动排重。</p>
-<h3 id="hash-哈希">Hash (哈希)</h3>
 <hr>
+<h3 id="hash-哈希">Hash (哈希)</h3>
 <h5 id="常用命令-4">常用命令</h5>
 <p>hget,hset,hgetall 等</p>
 <pre><code class="language-bash">127.0.0.1:6379&gt; keys *
@@ -549,8 +549,8 @@ sadd tag:erlang 3
 <p>存储部分变更数据</p>
 </blockquote>
 <p>如用户信息等</p>
-<h3 id="zset-有序集合">ZSet (有序集合)</h3>
 <hr>
+<h3 id="zset-有序集合">ZSet (有序集合)</h3>
 <h5 id="常用命令-5">常用命令</h5>
 <p>zadd,zrange,zrem,zcard等</p>
 <pre><code class="language-bash">127.0.0.1:6379&gt; keys *
@@ -706,15 +706,15 @@ sadd tag:erlang 3
  inter_list = redis.sunion(&quot;tag.ruby&quot;, &quot;tag:web&quot;)
 </code></pre>
 <h2 id="三种特殊数据类型">三种特殊数据类型</h2>
-<h3 id="geospatial-地理位置">geospatial 地理位置</h3>
 <hr>
+<h3 id="geospatial-地理位置">geospatial 地理位置</h3>
 <blockquote>
 <p>georadius</p>
 </blockquote>
+<hr>
 <h3 id="hyperloglog">hyperloglog</h3>
 <hr>
 <h3 id="bitmaps">bitmaps</h3>
-<hr>
 <!-- more -->
 <!-- more -->
 ]]></content>
