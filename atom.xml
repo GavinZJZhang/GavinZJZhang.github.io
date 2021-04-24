@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://gavinzjzhang.github.io/</id>
     <title>Gavy&apos;s TechBlog</title>
-    <updated>2021-04-24T14:01:14.727Z</updated>
+    <updated>2021-04-24T15:20:46.642Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://gavinzjzhang.github.io/"/>
     <link rel="self" href="https://gavinzjzhang.github.io/atom.xml"/>
@@ -16,6 +16,24 @@
         <link href="https://gavinzjzhang.github.io/post/miao-sha-xi-tong-jia-gou-fen-xi-yu-shi-zhan/">
         </link>
         <updated>2021-04-24T13:57:41.000Z</updated>
+        <summary type="html"><![CDATA[<p>👉摘要秒杀系统架构分析与实战 <code>高并发</code>  <code>高可用</code>  <code>可扩展</code><br>
+🍌</p>
+<blockquote>
+<p>假设某网站秒杀活动只推出一件商品，预计会吸引1万人参加活动，也就说最大并发请求数是10000，秒杀系统需要面对的技术挑战有：<br>
+1.  对现有网站业务造成冲击秒杀活动只是网站营销的一个附加活动，这个活动具有时间短，并发访问量大的特点，如果和网站原有应用部署在一起，必然会对现有业务造成冲击，稍有不慎可能导致整个网站瘫痪。解决方案：将秒杀系统独立部署，甚至使用独立域名，使其与网站完全隔离。<br>
+2. 高并发下的应用、数据库负载用户在秒杀开始前，通过不停刷新浏览器页面以保证不会错过秒杀，这些请求如果按照一般的网站应用架构，访问应用服务器、连接数据库，会对应用服务器和数据库服务器造成负载压力。解决方案：<br>
+... ...</p>
+</blockquote>
+]]></summary>
+        <content type="html"><![CDATA[<p>👉摘要秒杀系统架构分析与实战 <code>高并发</code>  <code>高可用</code>  <code>可扩展</code><br>
+🍌</p>
+<blockquote>
+<p>假设某网站秒杀活动只推出一件商品，预计会吸引1万人参加活动，也就说最大并发请求数是10000，秒杀系统需要面对的技术挑战有：<br>
+1.  对现有网站业务造成冲击秒杀活动只是网站营销的一个附加活动，这个活动具有时间短，并发访问量大的特点，如果和网站原有应用部署在一起，必然会对现有业务造成冲击，稍有不慎可能导致整个网站瘫痪。解决方案：将秒杀系统独立部署，甚至使用独立域名，使其与网站完全隔离。<br>
+2. 高并发下的应用、数据库负载用户在秒杀开始前，通过不停刷新浏览器页面以保证不会错过秒杀，这些请求如果按照一般的网站应用架构，访问应用服务器、连接数据库，会对应用服务器和数据库服务器造成负载压力。解决方案：<br>
+... ...</p>
+</blockquote>
+]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[Redis]]></title>

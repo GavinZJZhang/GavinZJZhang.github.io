@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>秒杀系统架构分析与实战 | Gavy&#39;s TechBlog</title>
-<link rel="shortcut icon" href="https://gavinzjzhang.github.io//favicon.ico?v=1619272866235">
+<link rel="shortcut icon" href="https://gavinzjzhang.github.io//favicon.ico?v=1619275884051">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://gavinzjzhang.github.io//styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="秒杀系统架构分析与实战 | Gavy&#39;s TechBlog - Atom Feed" href="https://gavinzjzhang.github.io//atom.xml">
@@ -11,14 +11,12 @@
 
 
 
-    <meta name="description" content="秒杀系统架构分析与实战
-https://www.cnblogs.com/andy-zhou/p/5364136.html
-高并发  高可用  可扩展
-1 秒杀业务分析
+    <meta name="description" content="👉摘要秒杀系统架构分析与实战 高并发  高可用  可扩展
+🍌
 
-正常电子商务流程
-（1）查询商品；（2）创建订单；（3）扣减库存；（4..." />
-    <meta name="keywords" content="" />
+假设某网站秒杀活动只推出一件商品，预计会吸引1万人参加活动，也就说最大并发请求数是10000，秒杀系统需要面对的技术挑战有：
+1.  对现有网站业务造成冲击秒杀活动只是网站..." />
+    <meta name="keywords" content="架构" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
@@ -27,7 +25,7 @@ https://www.cnblogs.com/andy-zhou/p/5364136.html
       <div class="main-content">
         <div class="site-header">
   <a href="https://gavinzjzhang.github.io/">
-  <img class="avatar" src="https://gavinzjzhang.github.io//images/avatar.png?v=1619272866235" alt="">
+  <img class="avatar" src="https://gavinzjzhang.github.io//images/avatar.png?v=1619275884051" alt="">
   </a>
   <h1 class="site-title">
     Gavy&#39;s TechBlog
@@ -61,6 +59,12 @@ https://www.cnblogs.com/andy-zhou/p/5364136.html
         </a>
       
     
+      
+        <a href="/后端进阶" class="menu">
+          后端进阶
+        </a>
+      
+    
   </div>
   <div class="social-container">
     
@@ -87,14 +91,29 @@ https://www.cnblogs.com/andy-zhou/p/5364136.html
                 2021-04-24
               </span>
               <span>
-                37 min read
+                38 min read
               </span>
+              
+                <a href="https://gavinzjzhang.github.io/tag/aMe3dLMkd/" class="post-tag">
+                  # 架构
+                </a>
               
             </div>
             
+              <img class="post-feature-image" src="https://gavinzjzhang.github.io//post-images/miao-sha-xi-tong-jia-gou-fen-xi-yu-shi-zhan.jpg" alt="">
+            
             <div class="post-content-wrapper">
               <div class="post-content">
-                <h2 id="秒杀系统架构分析与实战">秒杀系统架构分析与实战</h2>
+                <p>👉摘要秒杀系统架构分析与实战 <code>高并发</code>  <code>高可用</code>  <code>可扩展</code><br>
+🍌</p>
+<blockquote>
+<p>假设某网站秒杀活动只推出一件商品，预计会吸引1万人参加活动，也就说最大并发请求数是10000，秒杀系统需要面对的技术挑战有：<br>
+1.  对现有网站业务造成冲击秒杀活动只是网站营销的一个附加活动，这个活动具有时间短，并发访问量大的特点，如果和网站原有应用部署在一起，必然会对现有业务造成冲击，稍有不慎可能导致整个网站瘫痪。解决方案：将秒杀系统独立部署，甚至使用独立域名，使其与网站完全隔离。<br>
+2. 高并发下的应用、数据库负载用户在秒杀开始前，通过不停刷新浏览器页面以保证不会错过秒杀，这些请求如果按照一般的网站应用架构，访问应用服务器、连接数据库，会对应用服务器和数据库服务器造成负载压力。解决方案：<br>
+... ...</p>
+</blockquote>
+<!-- more -->
+<h2 id="秒杀系统架构分析与实战">秒杀系统架构分析与实战</h2>
 <p>https://www.cnblogs.com/andy-zhou/p/5364136.html</p>
 <p><code>高并发</code>  <code>高可用</code>  <code>可扩展</code></p>
 <h3 id="1-秒杀业务分析">1 秒杀业务分析</h3>
@@ -592,6 +611,32 @@ public class DB {
           </div>
         
 
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '',
+    clientSecret: '',
+    repo: '',
+    owner: '',
+    admin: [''],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
         
 
         <div class="site-footer">
